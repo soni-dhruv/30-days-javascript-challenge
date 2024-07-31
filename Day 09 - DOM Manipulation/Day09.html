@@ -1,0 +1,153 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 09 DOM Manipulation</title>
+    <style>
+        .bold {
+            font-size: 25px;
+            font-weight: 900;
+            color: blue;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            border: solid 6px;
+            border-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id = "title">
+        Select an HTML element by its ID and change its text content
+    </div>
+    <div id = "change">Click Me</div>
+    <button class = "btn">Change Background Color</button>
+    <div id = "add-here"></div>
+    <ul>
+        This is ul list
+        <li>Line 1</li>
+        <li>Line 2</li>
+        <li>Line 3</li>
+        <li>Line 4</li>
+        <li>Line 5</li>
+    </ul>
+    <h1>This line is going to be removed from DOM.</h1>
+    <ol id = "fruits">
+        <p>List of Fruits:</p>
+        <li>Orange</li>
+        <li>Mango</li>
+        <li>Apple</li>
+        <li>Banana</li>
+    </ol>
+    <img
+        id = "photo1"
+        width = "200px"
+        src = "https://images.pexels.com/photos/16876973/pexels-photo-16876973/free-photo-of-young-women-sitting-by-the-water-with-a-bouquet.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        alt = ""
+    />
+    <p id = "para">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dolorum facere, voluptas ullam sunt necessitatibus dicta quaerat aut nemo aliquid.
+    </p>
+    <button id = "replace">Replace content</button>
+    <div id = "box"></div>
+</body>
+
+<script>
+    //Day 9: DOM Manipulation
+
+    //Activity 1: Selecting and Manipulating Elements
+    //Task 1: Select an HTML element by its ID and change its text content.
+    document.getElementById("change").addEventListener("click", function () {
+        const title = document.getElementById("title");
+        title.innerHTML = "Changed Text";
+        title.style.padding = "10px";
+        title.style.color = "Green";
+    });
+
+    //Task 2: Select an HTML element by its class and change its background color.
+    const btnBg = document.getElementsByClassName("btn");
+
+    btnBg[0].addEventListener("click", function (e) {
+        e.preventDefault()
+        btnBg[0].style.backgroundColor = "yellow"
+    })
+
+    //Activity 2: Creating and Appending Elements
+    //Task 3: Create a new div element with some text content and append it to the body.
+    const addHere = document.getElementById("add-here")
+    const newDiv = document.createElement("div")
+    addHere.appendChild(newDiv)
+    newDiv.id = "new-text"
+    newDiv.style.padding = "20px 0 20px"
+    newDiv.style.color = "red"
+    newDiv.style.fontSize = "25px"
+    const newTextContent = document.createTextNode(
+        "This is new list text in new list element."
+    )
+    newDiv.appendChild(newTextContent)
+
+    //Task 4: Create a new li element and add it to an existing ul list.
+    const newLi = document.createElement("li")
+    const newLiText = document.createTextNode(
+        "This is new list text in new list element."
+    )
+    newLi.appendChild(newLiText)
+    newLi.style.backgroundColor = "yellow";
+    const ulElem = document.getElementsByTagName("ul")
+    ulElem[0].appendChild(newLi);
+
+    //Activity 3: Removing Elements
+    //Task 5: Select an HTML element and remove it from the DOM.
+    const h1Elem = document.getElementsByTagName("h1")
+    h1Elem[0].addEventListener("click", function (e) {
+        e.preventDefault()
+        h1Elem[0].remove()
+    })
+
+    //Task 6: Remove the last child of a specific HTML element.
+    const fruits = document.getElementById("fruits")
+    fruits.lastElementChild.addEventListener("mouseover", () => {
+        fruits.lastElementChild.remove()
+    })
+    
+    //Activity 4: Modifying Attributes and Classes
+    //Task 7: Select an HTML element and change one of its attributes (e.g., sre of an img tag).
+    const img1 = document.getElementById("photo1")
+    img1.addEventListener("mouseover", function (e) {
+        img1.src = "https://images.pexels.com/photos/16876973/pexels-photo-16876973/free-photo-of-young-women-sitting-by-the-water-with-a-bouquet.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    })
+
+    //Task 8: Add and remove a CSS class to/from an HTML element.
+    const ol = document.getElementsByTagName("ol")
+    ol[0].addEventListener("mouseover", (e) => {
+        e.preventDefault()
+        ol[0].firstElementChild.className = "bold"
+    })
+
+    ol[0].addEventListener("mouseout", (e) => {
+        e.preventDefault()
+        ol[0].firstElementChild.className = ""
+    })
+
+    //Activity 5: Event Handling
+    //Task 9: Add a click event listener to a button that changes the text content of a paragraph.
+    const replace = document.querySelector("#replace")
+    replace.addEventListener("click", function (e) {
+        e.preventDefault()
+        const para = document.querySelector("#para")
+        para.textContent = "This is Replaced content"
+    })
+
+    //Task 10: Add a mouseover event listener to an element that changes its border color.
+    const box = document.getElementById("box")
+    box.addEventListener("mouseover", function (e) {
+        e.preventDefault()
+        box.style.borderColor = "red";
+    })
+
+</script>
+</html>

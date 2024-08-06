@@ -1,0 +1,73 @@
+//Day 10: Event Handling //index.html
+<!DOCTYPE html>
+<img_lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Day 10: Event Handling</title>
+        <style>
+            #hoverElement {
+                width: 100px;
+                height: 100px;
+                background-color: grey;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <img>
+    <p id="paragraphElement">Text</p>
+    <button id="buttonElement">Change Text</button>
+    <img id='testImage' src="demo.jpg" alt='test image' />
+    <!-- Add a mouseover event listener to an element that changes its background color. -->
+    <div id='hoverElement'>hoverElement</div>
+    <!-- Add a keydown eventListener to an input field that logs they key pressed to the console. --> <input type="text"
+        id='myInputfield' placeholder="Type-something..."></input>
+    <!-- Add a keyup event listener to an input field that displays the current value in a paragraph
+<p id="inputfield Paragraph"></p> -->
+
+    <!--
+Task 7: Add a submit event listener to a form that prevents the default  submission and logs the form data to the console.
+-->
+    <form id='myForm'>
+        <label for="username">Username</label>
+        <input type="text" id="email" name="email">
+        <br>
+        <buttom type="submit">Submit</buttom>
+    </form>
+
+    <!--
+Task 8: Add a change event listener to a select dropdown that displays the selected value in a paragraph.
+-->
+    <label for="chooseColor">Choose a color: </label>
+    <select id="selectColor">
+        <option value="yellow">Yellow</option>
+        <option value="green">Green</option>
+        <option value="grey">Grey</option>
+    </select>
+    <p id='SelectedValue'></p>
+
+    <!--
+Activity 5: Event Delegation
+Task 9: Add a click event listener to a list that logs the text content of the clicked list item using event delegation.
+-->
+
+    <ul id="list">
+        <li class="listItem">List 1</li>
+        <li class="listItem">List 2</li>
+        <li class="listItem">List 3</li>
+    </ul>
+    <script src="Day10.js"></script>
+
+    <!--
+Task 10: Add an event listener to a parent element that listens for events from dynamically added child elements.
+-->
+    <div id='parent'>
+        <!-- Dynamically added child elements will be placed here -->
+    </div>
+    <button id='addChildElement'>AddChildElement</button>
+
+    </html>

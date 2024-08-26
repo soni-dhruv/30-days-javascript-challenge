@@ -1,0 +1,37 @@
+<!-- Activity 3: Understanding SessionStorage -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity 03: SessionStorage</title>
+</head>
+
+<body>
+    <h1>Session Storage</h1>
+</body>
+<script>
+    //Task 5: Write a script to save a string value to sessionStorage and retrieve it. Log the retrieved value.
+    console.log("\n------------------------Task 5------------------------")
+    sessionStorage.setItem("string", "Hey! What are you doing?")
+    const retrievedString = sessionStorage.getItem("string")
+
+    console.log(`Retrieved String: ${retrievedString}`)
+
+    //Task 6: Write a script to save an object to sessionStorage by converting it to a JSON string. Retrieve and parse the object, then log it.
+    console.log("\n------------------------Task 6------------------------")
+    const fruitColor = {
+        mango: "yellow",
+        guava: "green",
+        apple: "red"
+    }
+
+    sessionStorage.setItem("fruitColor", JSON.stringify(fruitColor))
+
+    const retrievedObject = JSON.parse(sessionStorage.getItem("fruitColor"))
+
+    console.log("The retrieved fruit color object: ", retrievedObject)
+</script>
+
+</html>

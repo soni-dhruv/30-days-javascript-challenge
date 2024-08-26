@@ -1,0 +1,86 @@
+<!-- Activity 2: Using LocalStorage -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity 02: LocalStorage</title>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using LocalStorage</title>
+</head>
+
+<body>
+    <div>
+        <h1>Using Forms to save in LocalStorage</h1>
+        <form id="userForm">
+            <label for="name">Name :</label>
+            <input type="text" id="name" name="name" placeholder="Enter Name" required />
+            <br>
+            <br>
+            <label for="email">Email :</label>
+            <input type="text" id="email" name="email" placeholder="Enter Email" required />
+            <br>
+            <br>
+            <br>
+            <button type="submit">Save</button>
+        </form>
+
+        <h2>Data saved successfully</h2>
+        <div id="savedData"></div>
+    </div>
+</body>
+<script>
+    //Task 3: Create a simple form that saves user input (e.g., name and email) to localStorage when submitted. Retrieve and display the saved data on page load.
+    console.log("\n------------------------Task 3------------------------")
+    document.addEventListener('DOMContentLoaded', () => {
+        const displaySavedData = () => {
+            const savedData = JSON.parse(localStorage.getItem("userInfo"))
+            const savedDataDiv = document.getElementById('savedData')
+
+            if (savedData) {
+                savedDataDiv.innerHTML =
+                    `<p>Name: ${savedData.name}</p> <p>Email: ${savedData.email}</p>`
+            } else {
+                savedDataDiv.innerHTML = `<p> No Data Found.</p>`
+            }
+        }
+
+        displaySavedData()
+
+        document.getElementById("userForm").addEventListener('submit', (e) => {
+            e.preventDefault()
+
+            const name = document.getElementById('name').value
+            const email = document.getElementById('email').value
+
+            const userInfo = {
+                name: name,
+                email: email
+            }
+
+            localStorage.setItem("userInfo", JSON.stringify(userInfo))
+
+            displaySavedData()
+
+            e.target.reset()
+        })
+    })
+
+    //Task 4: Write a script to remove an item from localStorage. Log the localStorage content before and after removal.
+    console.log("\n------------------------Task 4------------------------")
+
+    console.log(localStorage.getItem("userInfo"))
+
+    localStorage.removeItem("userInfo")
+
+    console.log(localStorage.getItem("userInfo"))
+</script>
+</html>

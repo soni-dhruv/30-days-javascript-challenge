@@ -1,0 +1,41 @@
+<!-- Day 20: LocalStorage and SessionStorage -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity 01: LocalStorage</title>
+</head>
+
+<body>
+    <div>
+        <h1>LocalStorage</h1>
+    </div>
+</body>
+<script>
+    //Activity 1: Understanding LocalStorage
+    //Task 1: Write a script to save a string value to localStorage and retrieve it. Log the retrieved value.
+    localStorage.setItem("string", "John Doe is an anonymous name.")
+
+    const retrievedString = localStorage.getItem("string")
+
+    console.log("\n------------------------Task 1------------------------")
+    console.log(`Retrieved String: ${retrievedString}`)
+
+
+    //Task 2: Write a script to save an object to localStorage by converting it to a JSON string. Retrieve and parse the object, then log it.
+    console.log("\n------------------------Task 2------------------------")
+    const employee = {
+        id: 100,
+        name: "Kevin",
+        profile: "Data Analyst"
+    }
+
+    localStorage.setItem("Employee", JSON.stringify(employee))
+
+    const retrievedObject = JSON.parse(localStorage.getItem("Employee"))
+    console.log(`Retrieved and Parsed pbject: `, retrievedObject)
+</script>
+</html>
